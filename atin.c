@@ -1,5 +1,4 @@
 /* ==================================================================
- *       Filename:  com.c
  *    Description:  4G LTE
  *        Created:  2014        Compiler:  gcc/g++
  *         Author:  Juwenlee1989@163.com
