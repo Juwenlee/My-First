@@ -11,7 +11,7 @@
 #include <fcntl.h>
 #include <termios.h>
 #include <errno.h>
-
+ 
 char *AT = "AT\n";
 char *AT_CFUN_4 = "AT+CFUN=4\n";
 char *AT_CFUN_1 = "AT+CFUN=1\n";
