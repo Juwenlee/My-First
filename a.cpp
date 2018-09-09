@@ -48,9 +48,23 @@ void Stock::show()
 	std::cout << "company: " << company << "\n";
 	std::cout << "shares : " << shares << "\n";
 	std::cout << "share_val: " << share_val << "\n";
-	std::cout << "share_val: " << total_val << "\n";
+	std::cout << "total_val: " << total_val << "\n";
 
 	return;
+}
+
+const Stock & Stock::compare(const Stock &cmp)
+{
+	if(cmp.total_val > total_val)
+	{
+		std::cout << "max value is " << company << "\n";
+		return cmp;
+	}
+	else
+	{
+		std::cout << "max value is " << company << "\n";
+		return *this;
+	}
 }
 
 int main()
@@ -64,6 +78,9 @@ int main()
 
 	stock2 = Stock("Zhang", 4,233);
 	stock2.show();
+
+	Stock maxStock = stock1.compare(stock2);
+	maxStock.show();
 
 	std::cout << "Exit Code\n";
 	return 0;
