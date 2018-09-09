@@ -5,30 +5,67 @@
     > Created Time: Thu 06 Sep 2018 10:47:31 PM CST
  ************************************************************************/
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include "a.h"
+
+Stock::Stock()
+{
+	company = "no name";
+	shares = 0;
+	share_val = 0.0;
+	total_val = 0.0;
+}
+
+Stock::Stock(const std::string &co, long n, double pr)
+{
+	company = co;
+
+	if(n < 0)
+	{
+		shares = 0;
+	}
+	else
+	{
+		shares = n;
+	}
+	share_val = pr;
+	set_tot();
+}
+
+Stock::~Stock()
+{
+	std::cout << "Bye, " << company << "\n";
+}
+
+void Stock::set_tot()
+{
+	total_val = share_val;
+}
+
+void Stock::show()
+{
+	std::cout << "company: " << company << "\n";
+	std::cout << "shares : " << shares << "\n";
+	std::cout << "share_val: " << share_val << "\n";
+	std::cout << "share_val: " << total_val << "\n";
+
+	return;
+}
 
 int main()
 {
-	int a[5] = {2,5,1,3,7};
-	int i = 0, j = 0,m = 0,sum = 0;
-    for(i = 0; i < 5;i++)
-		printf("%d ",a[i]);
-	printf("\n");
+	std::cout << "Enter Code\n";
+	Stock stock1("LEE", 3, 3.14);
+	stock1.show();
 
-	for(i=0;i<4;i++)
-		for(j = i+1;j<5;j++)
-		{
-			if(a[i] > a[j])
-			{
-				m    = a[i];
-				a[i] = a[j];
-				a[j] = m;
-			}
-		}
-	for(i = 0;i<5;i++)
-		printf("%d ", a[i]);
-	printf("\n");
+	Stock stock2 = stock1;
+	stock2.show();
+
+	stock2 = Stock("Zhang", 4,233);
+	stock2.show();
+
+	std::cout << "Exit Code\n";
 	return 0;
 }
 
