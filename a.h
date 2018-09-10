@@ -21,7 +21,7 @@ public:
     void sell(long num, double price);
     void update(double price);
     void show();
-    const Stock &compare(const Stock &cmp);
+    const Stock &compare(const Stock &cmp) const;
 };
 
 #endif

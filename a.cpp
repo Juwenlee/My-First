@@ -53,7 +53,7 @@ void Stock::show()
 	return;
 }
 
-const Stock & Stock::compare(const Stock &cmp)
+const Stock & Stock::compare(const Stock &cmp) const
 {
 	if(cmp.total_val > total_val)
 	{
@@ -81,6 +81,12 @@ int main()
 
 	Stock maxStock = stock1.compare(stock2);
 	maxStock.show();
+
+	Stock stocks[4];
+	
+	const Stock *ps = &stocks[0];
+	for(int i = 1; i < 4; i++)
+		ps = &ps->compare(stocks[i]);
 
 	std::cout << "Exit Code\n";
 	return 0;
