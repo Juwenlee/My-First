@@ -2,6 +2,8 @@
 #define A_H
 
 #include <string>
+#include <iostream>
+
 class Stock
 {
 private:
@@ -22,6 +24,7 @@ public:
     void update(double price);
     void show();
     const Stock &compare(const Stock &cmp) const;
+    friend std::ostream & operator<<(std::ostream & os, const Stock & st);
 };
 
 #endif

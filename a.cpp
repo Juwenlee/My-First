@@ -67,6 +67,15 @@ const Stock & Stock::compare(const Stock &cmp) const
 	}
 }
 
+std::ostream & operator<<(std::ostream & os, const Stock & st)
+{
+	os << "--------------------------\n";
+	os << "Company: " << st.company << "\nTotal Value: " << st.total_val << "\n";	
+	os << "--------------------------\n";
+
+	return os;
+}
+
 int main()
 {
 	std::cout << "Enter Code\n";
@@ -88,6 +97,7 @@ int main()
 	for(int i = 1; i < 4; i++)
 		ps = &ps->compare(stocks[i]);
 
+	std::cout << stock1 << stock2 << *ps;
 	std::cout << "Exit Code\n";
 	return 0;
 }
