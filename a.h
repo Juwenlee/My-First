@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+// 基础类
 class Stock
 {
 private:
@@ -27,7 +28,7 @@ public:
     friend std::ostream & operator<<(std::ostream & os, const Stock & st);
 };
 
-
+// 运算符重载
 class Time
 {
 private:
@@ -38,6 +39,31 @@ public:
     Time(int h, int m);
     ~Time();
     friend std::ostream & operator<<(std::ostream & os, const Time & t);
+};
+
+// 动态内存分配
+class String
+{
+private:
+    char * str;
+    int len;
+    static int num_strings;
+public:
+    String(const char * s);
+    String();
+    String(const String & st);
+    String & operator=(const String &st);
+    ~String();
+    friend std::ostream & operator<<(std::ostream & os, const String & st);
+};
+
+class Op
+{
+private:
+    int a;
+    int c;
+public:
+    Op(int b = 0){a = b; std::cout << "        a = " << a << std::endl;}
 };
 
 #endif
