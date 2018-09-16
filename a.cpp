@@ -76,8 +76,31 @@ std::ostream & operator<<(std::ostream & os, const Stock & st)
 	return os;
 }
 
+
+Time::Time()
+{
+	hours   = 0;
+	minutes = 0;
+}
+
+Time::Time(int h, int m):hours(h),minutes(m)
+{
+
+}
+
+std::ostream & operator<<(std::ostream & os, const Time & t)
+{
+	os << "Hour: " << t.hours << "\nMiniute: " << t.minutes << "\n";
+	return os;
+}
+
+Time::~Time()
+{
+	
+}
 int main()
 {
+// Stock
 	std::cout << "Enter Code\n";
 	Stock stock1("LEE", 3, 3.14);
 	stock1.show();
@@ -99,6 +122,10 @@ int main()
 
 	std::cout << stock1 << stock2 << *ps;
 	std::cout << "Exit Code\n";
+// Time
+	Time time1;
+	Time time2(3,59);
+	std::cout << time1 << time2;
 	return 0;
 }
 

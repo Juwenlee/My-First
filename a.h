@@ -27,4 +27,17 @@ public:
     friend std::ostream & operator<<(std::ostream & os, const Stock & st);
 };
 
+
+class Time
+{
+private:
+    int hours;
+    int minutes;
+public:
+    Time();
+    Time(int h, int m);
+    ~Time();
+    friend std::ostream & operator<<(std::ostream & os, const Time & t);
+};
+
 #endif
