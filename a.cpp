@@ -140,9 +140,9 @@ int String::num_strings = 0;
 
 String::String()
 {
-	len = 3;
-	str = new char [4];
-	std::strcpy(str, "C++");
+	len = 0;
+	str = new char [1];
+	str[0] = '\0';
 	num_strings++;
 	std::cout << "	Num = " << num_strings << std::endl;
 }
@@ -171,8 +171,8 @@ String::String(const String & st)
 	std::strcpy(str, st.str);
 }
 
- String & String::operator=(const String &st)
- {
+String & String::operator=(const String &st)
+{
 	if(this != &st)
 	{
 		delete [] str;
@@ -180,14 +180,19 @@ String::String(const String & st)
 		str = new char[len + 1];
 		std::strcpy(str, st.str);
 	}
-	
+
 	return *this;
- }
+}
 
 std::ostream & operator<<(std::ostream & os, const String & st)
 {
 	os << "	Name: " << st.str << "\n	Number: " << st.num_strings << "\n	Length: "<< st.len << std::endl;
 	return os;
+}
+
+void String::HowMany()
+{
+	std::cout << "	Number: " << num_strings << std::endl;
 }
 
 // 没有问题
@@ -206,8 +211,11 @@ void Dbg_String()
 {
 	std::cout << "Enter String\n";
 	String str1;
+	str1.HowMany();
 	String str2("Juwenlee");
+	str2.HowMany();
 	std::cout << str1 << str2;
+
 
 	callme1(str1);
 	callme2(str2);

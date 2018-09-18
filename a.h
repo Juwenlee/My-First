@@ -55,6 +55,7 @@ public:
     String & operator=(const String &st);
     ~String();
     friend std::ostream & operator<<(std::ostream & os, const String & st);
+    static void HowMany();
 };
 
 class Op
