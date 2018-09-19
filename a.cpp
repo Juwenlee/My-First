@@ -232,6 +232,45 @@ void Dbg_Op()
 	std::cout << "Exit Op\n";
 }
 
+
+// 类继承
+TableTennisPlayer::TableTennisPlayer(const std::string & fn, const std::string & ln, bool ht)
+		:firstname(fn), lastname(ln), hasTable(ht)
+{}
+
+void TableTennisPlayer::Name() const
+{
+	std::cout << "	Fn: " << firstname << ", Ln: " << lastname << std::endl;	
+}
+ 
+RatedPlayer::RatedPlayer(unsigned int rt, const std::string & fn, const std::string & ln, bool ht)
+		:rating(rt), TableTennisPlayer(fn, ln, ht)
+{}
+
+RatedPlayer::RatedPlayer(unsigned int rt, const TableTennisPlayer & tp)
+		:rating(rt), TableTennisPlayer(tp)
+{}
+
+void Dbg_Tennis()
+{
+	std::cout << "Enter Tennis\n";
+	TableTennisPlayer player1("Chunk", "Blizzard", true);
+	TableTennisPlayer player2("Tara", "Boomdea", false);
+	player1.Name();
+	player2.Name();
+	RatedPlayer rplayer1(1111, "Mallory", "Duck", true);
+	rplayer1.Name();
+	std::cout << "	Rating: " << rplayer1.Rating() << std::endl;
+	rplayer1.ResetRating(1);
+	std::cout << "	After reset: " << rplayer1.Rating() << std::endl;
+	RatedPlayer rplayer2(2232, player2);
+	rplayer2.Name();
+	std::cout << "	Rating: " << rplayer2.Rating() << std::endl;
+	rplayer2.ResetRating(2);
+	std::cout << "	After reset: " << rplayer2.Rating() << std::endl;
+	std::cout << "Exit Tennis\n";
+}
+
 int main()
 {
 // Stock
@@ -242,6 +281,8 @@ int main()
 	Dbg_String();
 // Op
 	Dbg_Op();
+// Tennis
+	Dbg_Tennis();
 
 	return 0;
 }

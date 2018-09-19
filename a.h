@@ -67,4 +67,34 @@ public:
     Op(int b = 0){a = b; std::cout << "        a = " << a << std::endl;}
 };
 
+
+// 基类
+class TableTennisPlayer
+{
+private:
+    std::string firstname;
+    std::string lastname;
+    bool hasTable;
+public:
+    TableTennisPlayer(const std::string & fn = "none", 
+                      const std::string & ln = "none", 
+                      bool ht = false);
+    void Name() const;
+    bool HasTable() const { return hasTable; };
+    void ResetTable(bool v) { hasTable = v; };
+};
+
+// 继承类
+class RatedPlayer: public TableTennisPlayer
+{
+private:
+    unsigned int rating;
+public:
+    RatedPlayer(unsigned int rt = 0, const std::string & fn = "none",
+                const std::string & ln = "none", bool ht = false);
+    RatedPlayer(unsigned int rt, const TableTennisPlayer & tp);
+    unsigned int Rating() const { return rating; };
+    void ResetRating(unsigned int r) { rating = r; };
+};
+
 #endif
