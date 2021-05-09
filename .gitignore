@@ -27,7 +27,7 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
-
+*.code-workspace
 # Thumbnails
 ._*
 
@@ -45,7 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
+a.dSYM
 
 #User Files & Folder
 .vscode
