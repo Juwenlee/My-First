@@ -59,7 +59,7 @@ const Stock & Stock::compare(const Stock &cmp) const
 {
 	if(cmp.total_val > total_val)
 	{
-		std::cout << "	max value is " << company << "\n";
+		std::cout << "	max value is " << cmp.company << "\n";
 		return cmp;
 	}
 	else
